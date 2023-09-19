@@ -67,13 +67,13 @@ puma config.ru -C puma.rb
    Example:
 
    ```
-   curl http://localhost:3000/36d5658a-6908-479e-887e-a949ec199272/latest_timestamp
+   curl http://localhost:3000/36d5658a-6908-479e-887e-a949ec199272/latest-timestamp
    ```
 
 3. GET /:id/cumulative-count (where ":id" is the desired device id)  
    Example:
    ```
-   curl http://localhost:3000/36d5658a-6908-479e-887e-a949ec199272/latest_timestamp
+   curl http://localhost:3000/36d5658a-6908-479e-887e-a949ec199272/cumulative-count
    ```
 
 ### Running system test
