@@ -6,7 +6,7 @@ class Application < Sinatra::Base
   before do
     content_type :json
   end
-
+  
   after do
     response.body = JSON.dump(response.body)
   end
@@ -14,9 +14,9 @@ class Application < Sinatra::Base
   post '/readings' do
     payload = JSON.parse(request.body.read)
     if @@device_history_store.ingest_payload(payload)
-      halt 200
+      halt 200, { message: "ok" }
     else
-      halt 400
+      halt 400, { message: "invalid payload" }
     end
   end
   
