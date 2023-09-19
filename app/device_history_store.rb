@@ -63,8 +63,11 @@ class DeviceHistoryStore
   end
 
   def ensure_device_history_exists(id)
+    return if @device_histories.has_key?(id)
     @lock.with_write_lock do
-      @device_histories[id] = DeviceHistory.new(id) unless @device_histories[id]
+      # re-check if key was added before lock aquired
+      return if @device_histories.has_key?(id)
+      @device_histories[id] = DeviceHistory.new(id) 
     end
   end
 end
